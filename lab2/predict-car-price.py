@@ -37,9 +37,13 @@ class CarPrice:
         self.df_val = df_shuffled.iloc[n_train:n_train+n_val].copy()
         self.df_test = df_shuffled.iloc[n_train+n_val:].copy()
 
-        self.y_train = self.df_train.msrp.values
-        self.y_val = self.df_val.msrp.values
-        self.y_test = self.df_test.msrp.values
+        self.y_train_orig = self.df_train.msrp.values
+        self.y_val_orig = self.df_val.msrp.values
+        self.y_test_orig = self.df_test.msrp.values
+
+        self.y_train = np.log1p(self.df_train.msrp.values)
+        self.y_val = np.log1p(self.df_val.msrp.values)
+        self.y_test = np.log1p(self.df_test.msrp.values)
 
         del self.df_train['msrp']
         del self.df_val['msrp']
@@ -66,14 +70,15 @@ class CarPrice:
         biased_term = w[0]
         weights = w[1:]
 
-        y_pred = np.round(biased_term + X_train.dot(weights), 0)
+        y_pred = biased_term + X_train.dot(weights)
+        y_pred = np.round(np.expm1(y_pred), 0)
         desired_columns = ['engine_cylinders', 'transmission_type', 'driven_wheels', 'number_of_doors', 
         'market_category', 'vehicle_size', 'vehicle_style', 'highway_mpg', 'city_mpg', 'popularity']
         output = self.df_train[desired_columns]
-        output['msrp'] = self.y_train
+        output['msrp'] = self.y_train_orig
         output['msrp_pred'] = y_pred
         print(output.head(5))
- 
+
         # pass
 
 def test():
