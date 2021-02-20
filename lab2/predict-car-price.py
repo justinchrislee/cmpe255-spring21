@@ -40,6 +40,10 @@ class CarPrice:
         self.y_train = self.df_train.msrp.values
         self.y_val = self.df_val.msrp.values
         self.y_test = self.df_test.msrp.values
+
+        del self.df_train['msrp']
+        del self.df_val['msrp']
+        del self.df_test['msrp']
         
         pass
 
@@ -64,8 +68,9 @@ class CarPrice:
 
         y_pred = np.round(biased_term + X_train.dot(weights), 0)
         desired_columns = ['engine_cylinders', 'transmission_type', 'driven_wheels', 'number_of_doors', 
-        'market_category', 'vehicle_size', 'vehicle_style', 'highway_mpg', 'city_mpg', 'popularity', 'msrp']
+        'market_category', 'vehicle_size', 'vehicle_style', 'highway_mpg', 'city_mpg', 'popularity']
         output = self.df_train[desired_columns]
+        output['msrp'] = self.y_train
         output['msrp_pred'] = y_pred
         print(output.head(5))
  
