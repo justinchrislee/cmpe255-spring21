@@ -41,10 +41,6 @@ class CarPrice:
         self.y_val = self.df_val.msrp.values
         self.y_test = self.df_test.msrp.values
         
-        self.df_train['msrp']
-        del self.df_val['msrp']
-        del self.df_test['msrp']
-        
         pass
 
     def prepare_X(self, df):
@@ -65,9 +61,8 @@ class CarPrice:
 
         biased_term = w[0]
         weights = w[1:]
-        
-        y_pred = np.round(biased_term + X_train.dot(weights), 0)
 
+        y_pred = np.round(biased_term + X_train.dot(weights), 0)
         desired_columns = ['engine_cylinders', 'transmission_type', 'driven_wheels', 'number_of_doors', 
         'market_category', 'vehicle_size', 'vehicle_style', 'highway_mpg', 'city_mpg', 'popularity', 'msrp']
         output = self.df_train[desired_columns]
