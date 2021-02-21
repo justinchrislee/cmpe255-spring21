@@ -77,7 +77,7 @@ class CarPrice:
         output = self.df_train[desired_columns]
         output['msrp'] = self.y_train_orig
         output['msrp_pred'] = y_pred
-        print(output.head(5))
+        print(output.head(5).to_markdown())
 
         # pass
 
