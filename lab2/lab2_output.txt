@@ -1,9 +1,8 @@
 $11914 lines loaded
-       engine_cylinders transmission_type  ...   msrp  msrp_pred
-2735                4.0            manual  ...  14410    14015.0
-6720                4.0         automatic  ...  19685    11935.0
-5878                4.0         automatic  ...  19795    15866.0
-11190               4.0            manual  ...   2000     5734.0
-4554                8.0         automatic  ...  56260    52365.0
-
-[5 rows x 12 columns]
+|       |   engine_cylinders | transmission_type   | driven_wheels     |   number_of_doors | market_category   | vehicle_size   | vehicle_style     |   highway_mpg |   city_mpg |   popularity |   msrp |   msrp_pred |
+|------:|-------------------:|:--------------------|:------------------|------------------:|:------------------|:---------------|:------------------|--------------:|-----------:|-------------:|-------:|------------:|
+|  2735 |                  4 | manual              | front_wheel_drive |                 2 | nan               | compact        | coupe             |            33 |         24 |         1385 |  14410 |       14015 |
+|  6720 |                  4 | automatic           | front_wheel_drive |                 4 | hatchback         | compact        | 4dr_hatchback     |            32 |         25 |         2031 |  19685 |       11935 |
+|  5878 |                  4 | automatic           | all_wheel_drive   |                 4 | hatchback         | compact        | 4dr_hatchback     |            37 |         28 |          640 |  19795 |       15866 |
+| 11190 |                  4 | manual              | rear_wheel_drive  |                 3 | nan               | large          | passenger_minivan |            18 |         16 |          873 |   2000 |        5734 |
+|  4554 |                  8 | automatic           | four_wheel_drive  |                 4 | flex_fuel         | large          | crew_cab_pickup   |            21 |         15 |         5657 |  56260 |       52365 |
