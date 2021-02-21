@@ -1,0 +1,9 @@
+$11914 lines loaded
+       engine_cylinders transmission_type  ...   msrp  msrp_pred
+2735                4.0            manual  ...  14410    14015.0
+6720                4.0         automatic  ...  19685    11935.0
+5878                4.0         automatic  ...  19795    15866.0
+11190               4.0            manual  ...   2000     5734.0
+4554                8.0         automatic  ...  56260    52365.0
+
+[5 rows x 12 columns]
