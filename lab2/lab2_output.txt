@@ -6,3 +6,4 @@ $11914 lines loaded
 |  5878 |                  4 | automatic           | all_wheel_drive   |                 4 | hatchback         | compact        | 4dr_hatchback     |            37 |         28 |          640 |  19795 |       15866 |
 | 11190 |                  4 | manual              | rear_wheel_drive  |                 3 | nan               | large          | passenger_minivan |            18 |         16 |          873 |   2000 |        5734 |
 |  4554 |                  8 | automatic           | four_wheel_drive  |                 4 | flex_fuel         | large          | crew_cab_pickup   |            21 |         15 |         5657 |  56260 |       52365 |
+MSRE Using Baseline Solution: 0.7554192603920132
