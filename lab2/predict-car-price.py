@@ -71,15 +71,20 @@ class CarPrice:
         weights = w[1:]
 
         y_pred = biased_term + X_train.dot(weights)
-        y_pred = np.round(np.expm1(y_pred), 0)
+        y_pred_inv_log = np.round(np.expm1(y_pred), 0)
         desired_columns = ['engine_cylinders', 'transmission_type', 'driven_wheels', 'number_of_doors', 
         'market_category', 'vehicle_size', 'vehicle_style', 'highway_mpg', 'city_mpg', 'popularity']
-        output = self.df_train[desired_columns]
+        output = self.df_train[desired_columns].copy()
         output['msrp'] = self.y_train_orig
-        output['msrp_pred'] = y_pred
+        output['msrp_pred'] = y_pred_inv_log
         print(output.head(5).to_markdown())
-
+        self.rmse(y_pred)
         # pass
+    
+    def rmse(self, y_pred):
+        error = y_pred - self.y_train
+        mse = (error ** 2).mean()
+        print(f'MSRE Using Baseline Solution: {np.sqrt(mse)}')
 
 def test():
     car_price = CarPrice()
