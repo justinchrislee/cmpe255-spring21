@@ -33,7 +33,7 @@ def random_digit():
     plt.show()
 
    
-def load_and_sort()
+def load_and_sort():
     try:
         from sklearn.datasets import fetch_openml
         mnist = fetch_openml('mnist_784', version=1, cache=True)
@@ -70,3 +70,4 @@ def train_predict(some_digit):
     
 def calculate_cross_val_score():
     # TODO
+    
