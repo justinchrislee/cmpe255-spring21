@@ -15,7 +15,7 @@ class DiabetesClassifier:
         
 
     def define_feature(self):
-        feature_cols = ['pregnant', 'insulin', 'bmi', 'age'] 
+        feature_cols = ['glucose']
         X = self.pima[feature_cols]
         y = self.pima.label
         return X, y
@@ -23,9 +23,9 @@ class DiabetesClassifier:
     def train(self):
         # split X and y into training and testing sets
         X, y = self.define_feature()
-        X_train, self.X_test, y_train, self.y_test = train_test_split(X, y, random_state=0)
+        X_train, self.X_test, y_train, self.y_test = train_test_split(X, y, random_state=42)
         # train a logistic regression model on the training set
-        logreg = LogisticRegression() 
+        logreg = LogisticRegression()
         logreg.fit(X_train, y_train)
         return logreg
     
